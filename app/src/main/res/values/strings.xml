@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">School</string>
+    <string name="Login">Login</string>
+    <string name="Logout">Logout</string>
+    <string name="Register">Register</string>
+    <string name="Create_new_Account">Create new account</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="Home">Home</string>
+    <string name="Help">Search Any Book.</string>
+    <string name="Send_verification_Code">Send Verification Code</string>
+    <string name="Loading">Loading...</string>
+    <string name="Active">Active:</string>
+    <string name="title">Book App</string>
+    <string name="Search">Search</string>
+    <string name="Matric_No_title">Matric No / Application No</string>
+    <string name="Email">Email Address</string>
+    <string name="Password">Password</string>
+    <string name="retrieve_password">Retrieve Password</string>
+    <string name="Find_Us">Find Us</string>
+    <string name="Get_Help">Get Help</string>
+    <string name="Retrive_Matric_No">Retrieve Matric No.</string>
+    <string name="logoHead">Login</string>
+    <string name="continueBtn">Create new account</string>
+    <string name="description">Liable</string>
+    <string name="Submit">Submit</string>
+    <string name="LoginIfRemember">Provide your correct email address</string>
+    <string name="Start_Registration">Start a Fresh Application</string>
+    <string name="Student_Login">Student Login Portal</string>
+    <string name="Pay_Fee">Pay Application Fee Online</string>
+    <string name="requirement_view">Click To View Programmes Entry Requirements</string>
+    <string name="Pay_Online_Title">Pay Online</string>
+    <string name="empty"></string>
+    <string name="Continue">Continue</string>
+
+    <style name="button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.1</item>
+        <item name="android:textSize">16dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/buttonstyle</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+</resources>

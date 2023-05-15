@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SchoolManagement" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/bg</item>
+    </style>
+
+    <style name="Theme.SchoolManagement" parent="Base.Theme.SchoolManagement" />
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item>
+    </style>
+
+    <style name="Theme.Project.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Project.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="YourApplicationTheme" parent="android:style/Theme.NoTitleBar">
+        <item name="android:buttonStyle">@style/button</item>
+    </style>
+
+</resources>

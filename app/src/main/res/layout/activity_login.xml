@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Login"
+    android:background="@color/bg">
+
+
+    <RelativeLayout
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="40sp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_home_24"
+            android:contentDescription="@string/Home"
+            />
+        <TextView
+            android:id="@+id/topPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Login"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:contentDescription="@string/Home"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Header"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textAlignment="center">
+
+        <TextView
+            android:id="@+id/HeaderQuote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:text="Login Account"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textStyle="normal"
+            />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@id/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:id="@+id/Userdata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonRow"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1sp"
+                android:layout_marginTop="2dp"
+                android:text="@string/Matric_No_title"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:contentDescription="lable"
+                android:textStyle="normal"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Matric_Number"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                app:boxStrokeColor="@color/white"
+                android:textColorHint="@color/white"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/MatricNum"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    app:boxStrokeColor="@color/white"
+                    android:hint="Matric No"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:text="@string/Password"
+                android:textSize="15sp"
+                android:textStyle="normal"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:boxStrokeColor="@color/white"
+                android:textColorHint="@color/white"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserPasswordForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    app:boxStrokeColor="@color/white"
+                    android:hint="Password"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/LoginButtonSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:textColorHint="@color/bg"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="@string/Login"
+                android:textColor="@color/bg"
+                app:textAllCaps="true"/>
+            <RelativeLayout
+                android:id="@+id/forgotOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LoginButtonSubmit"
+                android:layout_marginTop="25sp"
+                android:layout_marginBottom="15dp">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/forgotOptionLink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="18dp"
+                        android:text="@string/forgot_password"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/Retrive_Matric_Number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/Retrive_Matric_No"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/CreateAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/CreateAccountButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/continueBtn"
+                    android:textColor="@color/bg"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
