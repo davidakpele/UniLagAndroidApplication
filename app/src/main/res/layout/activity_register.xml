@@ -2,8 +2,183 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".Register">
 
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/empty"
+            android:drawableStart="@drawable/logoimg"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="60dp">
+        <LinearLayout
+            android:id="@+id/Userdata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/Logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Header"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/HeaderQuote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="@string/Registration_Form_Title"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textStyle="normal"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1sp"
+                android:layout_marginTop="2dp"
+                android:text="Application Type:*"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:contentDescription="@string/Loading"
+                android:textStyle="normal"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="2dp"
+                android:textColor="@color/gray"
+                android:hint="Type" >
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/filled_exposed"
+                    android:inputType="none">
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--     Open     -->
+            <TextView
+                android:id="@+id/textView_indian_states"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="30dp"
+                android:padding="6dp"
+                android:text="@string/state"
+                android:textColor="#555555"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+
+
+            <Spinner
+                android:id="@+id/spinner_indian_states"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/textView_indian_states"/>
+
+            <TextView
+                android:id="@+id/textView_indian_districts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner_indian_states"
+                android:layout_marginTop="30dp"
+                android:padding="6dp"
+                android:text="@string/district"
+                android:textColor="#555555"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <Spinner
+                android:id="@+id/spinner_indian_districts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/textView_indian_districts"/>
+            <!--     close     -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1sp"
+                android:layout_marginTop="15dp"
+                android:text="Faculty:*"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:contentDescription="@string/Loading"
+                android:textStyle="normal"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="2dp"
+                android:textColor="@color/gray"
+                android:hint="Faculty" >
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/faculty_data"
+                    android:inputType="none">
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/PayButtonSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="1dp"
+                android:backgroundTint="@color/bg"
+                android:textColorHint="@color/white"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="@string/Continue"
+                android:textColor="@color/white"
+                app:textAllCaps="true"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,9 @@
     <color name="darkBlue">#13547C</color>
     <color name="gray">#545353</color>
     <color name="btn_red">#c60d00</color>
+    
+    <color name="app_theme">#009dff</color>
+    <color name="app_theme_light">#f6fbff</color>
+    <color name="edit_text_border">#03A9F4</color>
+    <color name="edit_text_background">#f6fbff</color>
 </resources>
