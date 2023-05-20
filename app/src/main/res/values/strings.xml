@@ -56,6 +56,83 @@
         <br/><br/> Using Names of Indian States in First Spinner.
         <br/> On selecting a State, Second Spinner is populated with the Names of Districts belonging to the selected State.
     </string>
+    <string-array name="School_Application">
+        <item>--Select--</item>
+        <item>Distance Learning Institute</item>
+        <item>Postgraduate</item>
+        <item>Undergraduate</item>
+    </string-array>
+    <string-array name="DCL_Faculty_Array_List">
+        <item>--Select--</item>
+        <item>Faculty of Basic Medical Science (BMS)</item>
+        <item>Faculty of  Public Health</item>
+        <item>Faculty of Social Science</item>
+        <item>Faculty of Engineering/Env</item>
+        <item>Faculty of Education</item>
+        <item>Faculty of Science</item>
+        <item>Faculty of Art</item>
+        <item>Faculty of Technology</item>
+        <item>Faculty of Administrator</item>
+    </string-array>
+    <string-array name="Department_of_Basic_Medical_Science_DSL">
+        <item>--Select--</item>
+        <item>Anatomy</item>
+        <item>Anaesthesia</item>
+        <item>Chemical Pathology</item>
+        <item>Community Medicine</item>
+        <item>Dermatology</item>
+        <item>Haematology and Immunology</item>
+        <item>Medical Biochemistry</item>
+        <item>Medical Microbiology</item>
+        <item>Medicine</item>
+        <item>Morbid Anatomy</item>
+        <item>Obstetrics and Gynaecology</item>
+        <item>Ophathalmology</item>
+        <item>Otalaryngology</item>
+        <item>Paediatrics</item>
+        <item>Pharmachology and Therapeutics</item>
+        <item>Physiology</item>
+        <item>Radiation Medicine</item>
+        <item>Surgery</item>
+        <item>Psychological Medicine</item>
+        <item>Child Dental Health</item>
+    </string-array>
+    <string-array name="department_of_Public_Health_DSL">
+        <item>--Select--</item>
+        <item>Community Medicine</item>
+        <item>Environmental Health Sciences</item>
+        <item>Epidemiology and Medical Statistics</item>
+        <item>Health Promotion and Education</item>
+        <item>Health Policy and Management</item>
+        <item>Institute of Child Health</item>
+        <item>Human Nutrition</item>
+    </string-array>
+    <string-array name="POST_Faculty_Array_List">
+        <item>--Select--</item>
+        <item>Faculty of Basic Medical Science (BMS)</item>
+        <item>Faculty of Veterinary Medicine</item>
+        <item>Faculty of Pharmacy</item>
+        <item>Faculty of Education</item>
+        <item>Faculty of Science</item>
+        <item>Faculty of Art</item>
+        <item>Faculty of Agriculture</item>
+        <item>Faculty of Law</item>
+    </string-array>
+        <string-array name="UNDER_Faculty_Array_List">
+            <item>--Select--</item>
+            <item>Faculty of Basic Medical Science (BMS)</item>
+            <item>Faculty of  Public Health</item>
+            <item>Faculty of Social Science</item>
+            <item>Faculty of Engineering/Env</item>
+            <item>Faculty of Pharmacy</item>
+            <item>Faculty of Education</item>
+            <item>Faculty of Science</item>
+            <item>Faculty of Art</item>
+            <item>Faculty of Agriculture</item>
+            <item>Faculty of Law</item>
+            <item>Faculty of Technology</item>
+            <item>Faculty of Administrator</item>
+        </string-array>
     <string-array name="array_indian_states">
         <item>Select Your State</item>
         <item>Andaman and Nicobar Islands</item><item>Andhra Pradesh</item><item>Arunachal Pradesh</item><item>Assam</item>
@@ -70,6 +147,46 @@
 
     <string-array name="array_default_districts">
         <item>Select Your District</item>
+    </string-array>
+    <string-array name="array_default_faculty">
+        <item>--Empty--</item>
+    </string-array>
+    <string-array name="select_any_faculty_first">
+        <item>-Select Faculty First-</item>
+    </string-array>
+    <string-array name="Department_Under_Basic_Medical_Science_Under_DLI">
+        <item>-Choose Department-</item>
+        <item>Anatomy</item>
+        <item>Petroleum and Gas Engineering</item>
+        <item>Anaesthesia</item>
+        <item>Chemical Pathology"</item>
+        <item>Community Medicine</item>
+        <item>Dermatology</item>
+        <item>Haematology and Immunology</item>
+        <item>Medical Biochemistry</item>
+        <item>Medical Microbiology</item>
+        <item>Medicine</item>
+        <item>Morbid Anatomy</item>
+        <item>Obstetrics and Gynaecology</item>
+        <item>Ophathalmology</item>
+        <item>Otalaryngology</item>
+        <item>Paediatrics</item>
+        <item>Pharmachology and Therapeutics</item>
+        <item>Physiology</item>
+        <item>Radiation Medicine</item>
+        <item>Surgery</item>
+        <item>Psychological Medicine</item>
+        <item>Child Dental Health</item>
+    </string-array>
+    <string-array name="Department_Under_Public_Health_Under_DLI">
+        <item>-Choose Department-</item>
+        <item>Community Medicine</item>
+        <item>Environmental Health Sciences</item>
+        <item>Epidemiology and Medical Statistics</item>
+        <item>Health Promotion and Education</item>
+        <item>Health Policy and Management</item>
+        <item>Institute of Child Health</item>
+        <item>Human Nutrition</item>
     </string-array>
 
     <string-array name="array_andhra_pradesh_districts">

@@ -1,189 +1,142 @@
 package com.example.schoolmanagement;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Calendar;
+
 public class Register extends AppCompatActivity {
 
-    private String selectedDistrict, selectedState;                 //vars to hold the values of selected State and District
-    private TextView tvStateSpinner, tvDistrictSpinner;             //declaring TextView to show the errors
-    private Spinner stateSpinner, districtSpinner;                  //Spinners
-    private ArrayAdapter<CharSequence> stateAdapter, districtAdapter;   //declare adapters for the spinners
+    private String selectedFaculty, selectedDepartment, SelectedApplication;                 //vars to hold the values of selected State and District
+    //declaring TextView to show the errors
+    private Spinner  App_type, FacultySpinner, DepartmentSpinner;                //Spinners
+    // on below line creating a variable.
+    private DatePickerDialog datePickerDialog;
+    private TextInputEditText etJoiningDate;
+    private ArrayAdapter<CharSequence> AppAdapter, facultyAdapter, DepartmentAdapter;   //declare adapters for the spinners
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        etJoiningDate=(TextInputEditText)findViewById(R.id.idEdtDate);
+        etJoiningDate.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        final Calendar cldr = Calendar.getInstance();
+                        int day = cldr.get(Calendar.DAY_OF_MONTH);
+                        int month = cldr.get(Calendar.MONTH);
+                        int year = cldr.get(Calendar.YEAR);
+                        // date picker dialog
+                        datePickerDialog = new DatePickerDialog(Register.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                        etJoiningDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                    }
+                                }, year, month, day);
+                        datePickerDialog.show();
+                        break;
+                }
+                return false;
+            }
+        });
         //State Spinner Initialisation
-        stateSpinner = findViewById(R.id.spinner_indian_states);    //Finds a view that was identified by the android:id attribute in xml
 
-        //Populate ArrayAdapter using string array and a spinner layout that we will define
-        stateAdapter = ArrayAdapter.createFromResource(this,
-                R.array.array_indian_states, R.layout.spinner_layout);
+        App_type = findViewById(R.id.application_type);
+        AppAdapter = ArrayAdapter.createFromResource(this, R.array.School_Application, R.layout.spinner_layout);
+        AppAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        App_type.setAdapter(AppAdapter);
 
-        // Specify the layout to use when the list of choices appear
-        stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        FacultySpinner= findViewById(R.id.Faculty);
+        facultyAdapter = ArrayAdapter.createFromResource(this, R.array.array_default_faculty, R.layout.spinner_layout);
+        facultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        FacultySpinner.setAdapter(facultyAdapter);
 
-        stateSpinner.setAdapter(stateAdapter);            //Set the adapter to the spinner to populate the State Spinner
 
-        //When any item of the stateSpinner uis selected
-        stateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        DepartmentSpinner = findViewById(R.id.spinner_department);
+        DepartmentAdapter = ArrayAdapter.createFromResource(this, R.array.array_default_faculty, R.layout.spinner_layout);
+        DepartmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        DepartmentSpinner.setAdapter(DepartmentAdapter);
+        App_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //Define City Spinner but we will populate the options through the selected state
-                districtSpinner = findViewById(R.id.spinner_indian_districts);
-
-                selectedState = stateSpinner.getSelectedItem().toString();      //Obtain the selected State
-
+                FacultySpinner = findViewById(R.id.Faculty);
+                SelectedApplication =App_type.getSelectedItem().toString();
                 int parentID = parent.getId();
-                if (parentID == R.id.spinner_indian_states){
-                    switch (selectedState){
-                        case "Select Your State": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_default_districts, R.layout.spinner_layout);
+                if (parentID == R.id.application_type){
+                    switch (SelectedApplication){
+                        case "--Select--": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_faculty, R.layout.spinner_layout);
+                            DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_faculty, R.layout.spinner_layout);
                             break;
-                        case "Andhra Pradesh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_andhra_pradesh_districts, R.layout.spinner_layout);
+                        case "Distance Learning Institute": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.DCL_Faculty_Array_List, R.layout.spinner_layout);
+                            DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.select_any_faculty_first, R.layout.spinner_layout);
                             break;
-                        case "Arunachal Pradesh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_arunachal_pradesh_districts, R.layout.spinner_layout);
+                        case "Postgraduate": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.POST_Faculty_Array_List, R.layout.spinner_layout);
+                            DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.select_any_faculty_first, R.layout.spinner_layout);
                             break;
-                        case "Assam": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_assam_districts, R.layout.spinner_layout);
-                            break;
-                        case "Bihar": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_bihar_districts, R.layout.spinner_layout);
-                            break;
-                        case "Chhattisgarh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_chhattisgarh_districts, R.layout.spinner_layout);
-                            break;
-                        case "Goa": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_goa_districts, R.layout.spinner_layout);
-                            break;
-                        case "Gujarat": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_gujarat_districts, R.layout.spinner_layout);
-                            break;
-                        case "Haryana": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_haryana_districts, R.layout.spinner_layout);
-                            break;
-                        case "Himachal Pradesh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_himachal_pradesh_districts, R.layout.spinner_layout);
-                            break;
-                        case "Jharkhand": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_jharkhand_districts, R.layout.spinner_layout);
-                            break;
-                        case "Karnataka": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_karnataka_districts, R.layout.spinner_layout);
-                            break;
-                        case "Kerala": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_kerala_districts, R.layout.spinner_layout);
-                            break;
-                        case "Madhya Pradesh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_madhya_pradesh_districts, R.layout.spinner_layout);
-                            break;
-                        case "Maharashtra": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_maharashtra_districts, R.layout.spinner_layout);
-                            break;
-                        case "Manipur": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_manipur_districts, R.layout.spinner_layout);
-                            break;
-                        case "Meghalaya": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_meghalaya_districts, R.layout.spinner_layout);
-                            break;
-                        case "Mizoram": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_mizoram_districts, R.layout.spinner_layout);
-                            break;
-                        case "Nagaland": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_nagaland_districts, R.layout.spinner_layout);
-                            break;
-                        case "Odisha": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_odisha_districts, R.layout.spinner_layout);
-                            break;
-                        case "Punjab": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_punjab_districts, R.layout.spinner_layout);
-                            break;
-                        case "Rajasthan": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_rajasthan_districts, R.layout.spinner_layout);
-                            break;
-                        case "Sikkim": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_sikkim_districts, R.layout.spinner_layout);
-                            break;
-                        case "Tamil Nadu": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_tamil_nadu_districts, R.layout.spinner_layout);
-                            break;
-                        case "Telangana": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_telangana_districts, R.layout.spinner_layout);
-                            break;
-                        case "Tripura": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_tripura_districts, R.layout.spinner_layout);
-                            break;
-                        case "Uttar Pradesh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_uttar_pradesh_districts, R.layout.spinner_layout);
-                            break;
-                        case "Uttarakhand": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_uttarakhand_districts, R.layout.spinner_layout);
-                            break;
-                        case "West Bengal": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_west_bengal_districts, R.layout.spinner_layout);
-                            break;
-                        case "Andaman and Nicobar Islands": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_andaman_nicobar_districts, R.layout.spinner_layout);
-                            break;
-                        case "Chandigarh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_chandigarh_districts, R.layout.spinner_layout);
-                            break;
-                        case "Dadra and Nagar Haveli": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_dadra_nagar_haveli_districts, R.layout.spinner_layout);
-                            break;
-                        case "Daman and Diu": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_daman_diu_districts, R.layout.spinner_layout);
-                            break;
-                        case "Delhi": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_delhi_districts, R.layout.spinner_layout);
-                            break;
-                        case "Jammu and Kashmir": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_jammu_kashmir_districts, R.layout.spinner_layout);
-                            break;
-                        case "Lakshadweep": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_lakshadweep_districts, R.layout.spinner_layout);
-                            break;
-                        case "Ladakh": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_ladakh_districts, R.layout.spinner_layout);
-                            break;
-                        case "Puducherry": districtAdapter = ArrayAdapter.createFromResource(parent.getContext(),
-                                R.array.array_puducherry_districts, R.layout.spinner_layout);
+                        case "Undergraduate": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.UNDER_Faculty_Array_List, R.layout.spinner_layout);
+                            DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.select_any_faculty_first, R.layout.spinner_layout);
                             break;
                         default:  break;
                     }
-                    districtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
-                    districtSpinner.setAdapter(districtAdapter);        //Populate the list of Districts in respect of the State selected
-
-                    //To obtain the selected District from the spinner
-                    districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            selectedDistrict = districtSpinner.getSelectedItem().toString();
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-                        }
-                    });
+                    facultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
+                    FacultySpinner.setAdapter(facultyAdapter);
+                    DepartmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
+                    DepartmentSpinner.setAdapter(DepartmentAdapter);
                 }
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
 
+
+        //Action ::When faculty is selected
+
+        FacultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                DepartmentSpinner = findViewById(R.id.spinner_department);
+                selectedFaculty = FacultySpinner.getSelectedItem().toString();
+                int parentID = parent.getId();
+                if (parentID == R.id.Faculty){
+                    if (selectedFaculty == "Faculty of Basic Medical Science (BMS)"){
+                        Toast.makeText(Register.this, " You Clicked me ", Toast.LENGTH_SHORT).show();
+                    }
+                    switch (selectedFaculty){
+                        case "--Select--": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_faculty, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Basic Medical Science (BMS)": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Basic_Medical_Science_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Public Health": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Public_Health_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        default:  break;
+                    }
+                    DepartmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
+                    DepartmentSpinner.setAdapter(DepartmentAdapter);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }

@@ -17,13 +17,15 @@
         android:layout_centerVertical="true"
         android:src="@drawable/baseline_school_24"
         />
+
     <TextView
-        android:layout_below="@+id/Logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome To Mercy College"
-        android:textColor="@color/white"
+        android:layout_below="@+id/Logo"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
+        android:text="Welcome To Lagos State University"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="normal" />
 </RelativeLayout>

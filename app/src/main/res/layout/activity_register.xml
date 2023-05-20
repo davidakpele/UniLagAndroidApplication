@@ -27,9 +27,9 @@
         android:layout_below="@id/header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="60dp">
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginTop="50dp">
         <LinearLayout
             android:id="@+id/Userdata"
             android:layout_width="match_parent"
@@ -53,132 +53,356 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="20sp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="30dp"
-                    android:text="@string/Registration_Form_Title"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"
                     android:gravity="center"
+                    android:text="@string/Registration_Form_Title"
                     android:textAlignment="center"
-                    android:textStyle="normal"
-                    />
-
+                    android:textColor="@color/gray"
+                    android:textSize="25sp"
+                    android:textStyle="normal" />
             </RelativeLayout>
-
-            <TextView
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1sp"
-                android:layout_marginTop="2dp"
-                android:text="Application Type:*"
-                android:textColor="@color/gray"
-                android:textSize="15sp"
-                android:contentDescription="@string/Loading"
-                android:textStyle="normal"
-                />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="@color/gray"
-                android:textColorHint="@color/gray"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="2dp"
-                android:textColor="@color/gray"
-                android:hint="Type" >
-                <AutoCompleteTextView
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="20dp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/filled_exposed"
-                    android:inputType="none">
-                </AutoCompleteTextView>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_above="@+id/buttonRow"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1sp"
+                        android:layout_marginTop="2dp"
+                        android:text="Application Type:*"
+                        android:textColor="#555555"
+                        android:textSize="15sp"
+                        android:contentDescription="@string/Loading"
+                        android:textStyle="normal" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray"
+                        app:cardCornerRadius="4dp">
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/application_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/textView_indian_states"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Faculty:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray"
+                        app:cardCornerRadius="4dp">
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/Faculty"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/departmentlabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Department:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray"
+                        app:cardCornerRadius="4dp">
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinner_department"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/ProgramLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Program:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray"
+                        app:cardCornerRadius="4dp">
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinner_indian_districts"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/NinLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="NIN:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/gray">
 
-            <!--     Open     -->
-            <TextView
-                android:id="@+id/textView_indian_states"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:hint="NIN"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            app:boxStrokeColor="@color/gray"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                android:layout_marginTop="30dp"
-                android:padding="6dp"
-                android:text="@string/state"
-                android:textColor="#555555"
-                android:focusable="true"
-                android:focusableInTouchMode="true"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="sans-serif-medium"
+                        android:padding="6dp"
+                        android:textSize="20dp"
+                        android:text="Personal Details"
+                        android:textColor="#555555" />
+                    <TextView
+                        android:id="@+id/SurnameLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Surname:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Surname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:hint="Surname"
+                            android:inputType="textAutoComplete"
+                            android:textColor="@color/black"
+                            app:boxStrokeColor="@color/gray"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/OtherNameLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Other Name:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/OtherName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:hint="Other Name"
+                            android:inputType="textAutoComplete"
+                            android:textColor="@color/black"
+                            app:boxStrokeColor="@color/gray"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/DOBLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Date Of Birth:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/idEdtDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:hint="Date Of Birth"
+                            android:inputType="textAutoComplete"
+                            android:textColor="@color/black"
+                            app:boxStrokeColor="@color/gray"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/GenderLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Gender:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray"
+                        app:cardCornerRadius="4dp">
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinner_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/EmailLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Email Address:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/gray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:hint="Email Address"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/black"
+                            app:boxStrokeColor="@color/gray"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/RelationshipLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Relationship Status:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray"
+                        app:cardCornerRadius="4dp">
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spinner_relationship"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/TelephoneNumberLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
+                        android:text="Mobile:*"
+                        android:textColor="#555555"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHint="@color/gray"
+                        app:boxStrokeColor="@color/gray">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:hint="Mobile"
+                            android:inputType="textPhonetic"
+                            android:textColor="@color/black"
+                            app:boxStrokeColor="@color/gray"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Spinner
-                android:id="@+id/spinner_indian_states"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/textView_indian_states"/>
-
-            <TextView
-                android:id="@+id/textView_indian_districts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/spinner_indian_states"
-                android:layout_marginTop="30dp"
-                android:padding="6dp"
-                android:text="@string/district"
-                android:textColor="#555555"
-                android:focusable="true"
-                android:focusableInTouchMode="true" />
-
-            <Spinner
-                android:id="@+id/spinner_indian_districts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/textView_indian_districts"/>
-            <!--     close     -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1sp"
-                android:layout_marginTop="15dp"
-                android:text="Faculty:*"
-                android:textColor="@color/gray"
-                android:textSize="15sp"
-                android:contentDescription="@string/Loading"
-                android:textStyle="normal"
-                />
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="@color/gray"
-                android:textColorHint="@color/gray"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="2dp"
-                android:textColor="@color/gray"
-                android:hint="Faculty" >
-                <AutoCompleteTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/faculty_data"
-                    android:inputType="none">
-                </AutoCompleteTextView>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/PayButtonSubmit"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="1dp"
-                android:backgroundTint="@color/bg"
-                android:textColorHint="@color/white"
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:text="@string/Continue"
-                android:textColor="@color/white"
-                app:textAllCaps="true"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/PayButtonSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="1dp"
+                        android:backgroundTint="@color/bg"
+                        android:textColorHint="@color/white"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/Continue"
+                        android:textColor="@color/white"
+                        app:textAllCaps="true"/>
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
