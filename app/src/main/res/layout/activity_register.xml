@@ -156,7 +156,7 @@
                         app:strokeColor="@color/gray"
                         app:cardCornerRadius="4dp">
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/spinner_indian_districts"
+                            android:id="@+id/spinner_program"
                             android:layout_width="match_parent"
                             android:layout_height="53dp" />
                     </com.google.android.material.card.MaterialCardView>

@@ -20,13 +20,13 @@ import java.util.Calendar;
 
 public class Register extends AppCompatActivity {
 
-    private String selectedFaculty, selectedDepartment, SelectedApplication;                 //vars to hold the values of selected State and District
+    private String selectedFaculty, selectedDepartment, SelectedApplication, SelectedProgram, SelectGender, SelectRelationshipStatus;                 //vars to hold the values of selected State and District
     //declaring TextView to show the errors
-    private Spinner  App_type, FacultySpinner, DepartmentSpinner;                //Spinners
+    private Spinner  App_type, FacultySpinner, DepartmentSpinner, ProgramSpinner, GenderSpinner, RelationshipStatusSpinner;                //Spinners
     // on below line creating a variable.
     private DatePickerDialog datePickerDialog;
     private TextInputEditText etJoiningDate;
-    private ArrayAdapter<CharSequence> AppAdapter, facultyAdapter, DepartmentAdapter;   //declare adapters for the spinners
+    private ArrayAdapter<CharSequence> AppAdapter, facultyAdapter, DepartmentAdapter, ProgramAdapter, GenderAdapter, RelationshipStatusAdapter;   //declare adapters for the spinners
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +68,26 @@ public class Register extends AppCompatActivity {
         facultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         FacultySpinner.setAdapter(facultyAdapter);
 
-
         DepartmentSpinner = findViewById(R.id.spinner_department);
         DepartmentAdapter = ArrayAdapter.createFromResource(this, R.array.array_default_faculty, R.layout.spinner_layout);
         DepartmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         DepartmentSpinner.setAdapter(DepartmentAdapter);
+
+        ProgramSpinner = findViewById(R.id.spinner_program);
+        ProgramAdapter = ArrayAdapter.createFromResource(this, R.array.array_default_faculty, R.layout.spinner_layout);
+        ProgramAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ProgramSpinner.setAdapter(ProgramAdapter);
+
+
+        GenderSpinner = findViewById(R.id.spinner_gender);
+        GenderAdapter = ArrayAdapter.createFromResource(this, R.array.Gender_spinner, R.layout.spinner_layout);
+        GenderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        GenderSpinner.setAdapter(GenderAdapter);
+
+        RelationshipStatusSpinner = findViewById(R.id.spinner_relationship);
+        RelationshipStatusAdapter = ArrayAdapter.createFromResource(this, R.array.Relation_status_spinner, R.layout.spinner_layout);
+        RelationshipStatusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        RelationshipStatusSpinner.setAdapter(RelationshipStatusAdapter);
         App_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -83,22 +98,30 @@ public class Register extends AppCompatActivity {
                     switch (SelectedApplication){
                         case "--Select--": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_faculty, R.layout.spinner_layout);
                             DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_faculty, R.layout.spinner_layout);
+                            ProgramAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_faculty, R.layout.spinner_layout);
                             break;
                         case "Distance Learning Institute": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.DCL_Faculty_Array_List, R.layout.spinner_layout);
                             DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.select_any_faculty_first, R.layout.spinner_layout);
+                            ProgramAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.program_type_a, R.layout.spinner_layout);
                             break;
                         case "Postgraduate": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.POST_Faculty_Array_List, R.layout.spinner_layout);
                             DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.select_any_faculty_first, R.layout.spinner_layout);
+                            ProgramAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.program_type_b, R.layout.spinner_layout);
                             break;
                         case "Undergraduate": facultyAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.UNDER_Faculty_Array_List, R.layout.spinner_layout);
                             DepartmentAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.select_any_faculty_first, R.layout.spinner_layout);
+                            ProgramAdapter =ArrayAdapter.createFromResource(parent.getContext(), R.array.program_type_a, R.layout.spinner_layout);
                             break;
                         default:  break;
                     }
                     facultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
                     FacultySpinner.setAdapter(facultyAdapter);
+
                     DepartmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
                     DepartmentSpinner.setAdapter(DepartmentAdapter);
+
+                    ProgramAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     // Specify the layout to use when the list of choices appears
+                    ProgramSpinner.setAdapter(ProgramAdapter);
                 }
             }
             @Override
@@ -126,6 +149,28 @@ public class Register extends AppCompatActivity {
                         case "Faculty of Basic Medical Science (BMS)": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Basic_Medical_Science_Under_DLI, R.layout.spinner_layout);
                             break;
                         case "Faculty of Public Health": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Public_Health_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Social Science": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Social_Science_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Engineering/Env": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Engineering_env_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Education": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Education_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Science": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Science_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Art": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Art_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Technology": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Technology_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Administrator": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Admin_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Veterinary Medicine": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_vite_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Pharmacy": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Pharmacy_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Agriculture": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Agric_Under_DLI, R.layout.spinner_layout);
+                            break;
+                        case "Faculty of Law": DepartmentAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.Department_Under_Law_Under_DLI, R.layout.spinner_layout);
                             break;
                         default:  break;
                     }
