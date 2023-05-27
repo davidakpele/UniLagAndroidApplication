@@ -96,6 +96,18 @@
                             android:id="@+id/application_type"
                             android:layout_width="match_parent"
                             android:layout_height="53dp" />
+                        <android.widget.TextView
+                            android:id="@+id/tvInvisibleError"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_alignRight="@+id/spnMySpinner"
+                            android:layout_alignBottom="@+id/spnMySpinner"
+                            android:layout_marginTop="0dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="50dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            />
                     </com.google.android.material.card.MaterialCardView>
                     <TextView
                         android:id="@+id/textView_indian_states"
@@ -172,17 +184,18 @@
                         android:focusableInTouchMode="true" />
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/LoginTextInputLayoutStyle"
+                        android:id="@+id/nin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/nin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
                             android:hint="NIN"
+                            app:errorEnabled="true"
                             android:inputType="number"
                             android:textColor="@color/black"
                             app:boxStrokeColor="@color/gray"
@@ -212,13 +225,12 @@
                         android:focusableInTouchMode="true" />
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/LoginTextInputLayoutStyle"
+                        android:id="@+id/Surname"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
-
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/Surname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
@@ -241,13 +253,12 @@
                         android:focusableInTouchMode="true" />
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/LoginTextInputLayoutStyle"
+                        android:id="@+id/OtherName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
-
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/OtherName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
@@ -273,7 +284,6 @@
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
-
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/idEdtDate"
                             android:layout_width="match_parent"
@@ -321,13 +331,12 @@
                         android:focusableInTouchMode="true" />
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/LoginTextInputLayoutStyle"
+                        android:id="@+id/UserEmail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
-
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/Email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
@@ -369,24 +378,22 @@
                         android:focusable="true"
                         android:focusableInTouchMode="true" />
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Usermobile"
                         style="@style/LoginTextInputLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/mobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
                             android:hint="Mobile"
-                            android:inputType="textPhonetic"
+                            android:inputType="number"
                             android:textColor="@color/black"
                             app:boxStrokeColor="@color/gray"
                             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
-
-
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/PayButtonSubmit"
                         android:layout_width="match_parent"
