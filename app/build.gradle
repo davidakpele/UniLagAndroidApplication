@@ -45,7 +45,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'com.google.firebase:firebase-storage:20.1.0'
     implementation 'com.google.firebase:firebase-firestore:24.4.1'
-
+    //phone emoji
+    implementation 'com.fredporciuncula:phonemoji:1.5.1'
     //password OpenBSD Blowfish password hashing algorithm
     implementation group: 'at.favre.lib', name: 'bcrypt', version: '0.9.0'
 

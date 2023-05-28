@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/back01"
     tools:context=".Register">
 
     <RelativeLayout
@@ -185,6 +185,10 @@
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/LoginTextInputLayoutStyle"
                         android:id="@+id/nin"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="11"
+                        app:helperText="Required"
+                        app:errorEnabled="true"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
@@ -197,8 +201,10 @@
                             android:hint="NIN"
                             app:errorEnabled="true"
                             android:inputType="number"
+                            android:maxLength="11"
                             android:textColor="@color/black"
                             app:boxStrokeColor="@color/gray"
+                            android:lines="1"
                             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -377,23 +383,25 @@
                         android:textColor="#555555"
                         android:focusable="true"
                         android:focusableInTouchMode="true" />
-                    <com.google.android.material.textfield.TextInputLayout
+                    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
                         android:id="@+id/Usermobile"
                         style="@style/LoginTextInputLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColorHint="@color/gray"
                         app:boxStrokeColor="@color/gray">
-                        <com.google.android.material.textfield.TextInputEditText
+                        <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
                             android:hint="Mobile"
-                            android:inputType="number"
+                            android:inputType="phone"
+                            android:digits="0123456789+"
                             android:textColor="@color/black"
                             app:boxStrokeColor="@color/gray"
+                            android:maxLength="17"
                             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/PayButtonSubmit"
                         android:layout_width="match_parent"

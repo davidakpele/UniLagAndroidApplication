@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.schoolmanagement.databinding.ActivityRegisterBinding;
+import com.fredporciuncula.phonemoji.PhonemojiTextInputLayout;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -63,7 +64,8 @@ public class Register extends AppCompatActivity {
     private TextInputEditText etJoiningDate;
     // Set fake TextView to be in error so that the error message appears
     private TextView tvInvisibleError;
-    private TextInputLayout National_Identification_Number, Surname, OtherName, Email, RelationShip_Status, Mobile;
+    private TextInputLayout National_Identification_Number, Surname, OtherName, Email, RelationShip_Status;
+    private PhonemojiTextInputLayout Mobile;
     private AppCompatButton PayButtonSubmit;
     private EditText mEmail, mSubject, mMessage;
     private ArrayAdapter<CharSequence> AppAdapter, facultyAdapter, DepartmentAdapter, ProgramAdapter, GenderAdapter, RelationshipStatusAdapter;   //declare adapters for the spinners
@@ -355,7 +357,9 @@ public class Register extends AppCompatActivity {
         progressDialog.show();
         //store user data in firebase
         String email = Email.getEditText().getText().toString();
-        String password = Surname.getEditText().getText().toString();
+        StudentSurname = Surname.getEditText().getText().toString();
+        StudentOthername = OtherName.getEditText().getText().toString();
+        String password = StudentSurname+""+StudentOthername;
         String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
 
         BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), bcryptHashString);
@@ -395,7 +399,8 @@ public class Register extends AppCompatActivity {
         StudentEmail =Email.getEditText().getText().toString();
         StudentRelationStatus = RelationshipStatusSpinner.getSelectedItem().toString();
         StudentPhoneNumber = Mobile.getEditText().getText().toString();
-        String password = Surname.getEditText().getText().toString();
+        //Combined surname and other name to hash password
+        String password = StudentSurname+""+StudentOthername;
 
         //hashing Student password
         String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
@@ -403,10 +408,9 @@ public class Register extends AppCompatActivity {
         //get current user uid
         String uid = firebaseAuth.getUid();
 
-        String mail = StudentEmail;
-        String message="Hello Message";
-        //String message = StudentSurname+" "+StudentOthername+",\n\n Thank you for your interest in University of Lagos, "+Application+" Programmes\n Kindly make payment online in any branch of a commercial bank in Nigeria.\n\nPlease print out the following information(if you haven't previously printed it out), it will be required at the bank Please print out the following information(if you haven't previously printed it out), it will be required at the bank for payment purposes:";
-        String subject = Application +" Application";
+        String mEmail = StudentEmail;
+        String mMessage = StudentSurname+" "+StudentOthername+",\n\n Thank you for your interest in University of Lagos, "+Application+" Programmes\n Kindly make payment online in any branch of a commercial bank in Nigeria.\n\nPlease print out the following information(if you haven't previously printed it out), it will be required at the bank Please print out the following information(if you haven't previously printed it out), it will be required at the bank for payment purposes:";
+        String mSubject = Application +" Application";
 
         //setup a data to add in db
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -434,7 +438,8 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         //send student their email
-                        JavaMailAPI javaMailAPI = new JavaMailAPI(Register.this,mail,subject,message);
+                        JavaMailAPI javaMailAPI = new JavaMailAPI(Register.this, mEmail, mSubject, mMessage);
+
                         javaMailAPI.execute();
                         //data added to db
                         progressDialog.dismiss();
